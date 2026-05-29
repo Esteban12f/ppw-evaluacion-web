@@ -10,11 +10,11 @@ export class PaisesService {
   private readonly baseUrl = environment.apiUrl;
 
   getPaises(): Observable<Welcome[]> {
-    return this.http.get<Welcome[]>(`${this.baseUrl}/all`);
+    return this.http.get<Welcome[]>(`${this.baseUrl}/all?fields=name,capital,flags`);
   }
 
   getPaisByName(name: string): Observable<Welcome[]> {
-    return this.http.get<Welcome[]>(`${this.baseUrl}/name/${name}`).pipe(delay(300));
+    return this.http.get<Welcome[]>(`${this.baseUrl}/name/${name}?fields=name,flags,capital,maps,population`).pipe(delay(300));
   }
 }
 

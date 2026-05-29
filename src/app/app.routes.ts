@@ -4,9 +4,8 @@ import { PaisesDetailPageComponent } from './features/components/pages/paises-de
 
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'paises', pathMatch: 'full' },
 
-  { path: 'paises', component: PaisesDetailPageComponent },
+  { path: 'paises', component: PaisesHomePageComponent },
   { path: 'pais/:name', component: PaisesDetailPageComponent },
 
   { path: '**', redirectTo: 'paises' }
