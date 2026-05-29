@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { PaisesService } from '../../../services/paises.service';
@@ -8,7 +8,7 @@ import { Welcome } from '../../../models/paises.interface';
 
 @Component({
   selector: 'app-paises-vhome-page',
-  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, Hero, CardComponent],
   templateUrl: './paises-home-page.html'
 })
