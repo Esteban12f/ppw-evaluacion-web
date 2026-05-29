@@ -1,0 +1,18 @@
+<div class="space-y-6">
+  <app-hero />
+
+  @if (paisesResource.isLoading()) {
+    <div class="flex flex-col items-center justify-center py-20 space-y-2">
+      <span class="loading loading-spinner loading-lg text-primary"></span>
+      <span class="text-xs text-slate-400 font-medium">Cargando base de datos mundial...</span>
+    </div>
+  }
+
+  @if (paisesResource.hasValue()) {
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6" id="grilla-datos">
+      @for (item of paisesResource.value(); track item.name.common) {
+        <app-card [pais]="item" />
+      }
+    </div>
+  }
+</div>

@@ -1,0 +1,19 @@
+<a [routerLink]="['/pais', pais().name.common]" 
+   class="card bg-white border border-slate-200/70 shadow-xs hover:shadow-md transition-all duration-200 group flex flex-col justify-between overflow-hidden h-full">
+  <div>
+    <figure class="relative aspect-video w-full bg-slate-50 border-b border-slate-100 overflow-hidden">
+      <img [src]="pais().flags.png" [alt]="pais().flags.alt || pais().name.common" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300" />
+    </figure>
+    <div class="p-4 space-y-1">
+      <h2 class="text-sm font-bold text-slate-800 group-hover:text-primary transition-colors line-clamp-1">
+        {{ pais().name.common }}
+      </h2>
+      <p class="text-xs text-slate-400 font-medium">Capital: {{ pais().capital[0] || 'N/A' }}</p>
+    </div>
+  </div>
+  <div class="px-4 pb-4 pt-1">
+    <span class="badge badge-sm font-bold tracking-wide bg-slate-100 text-slate-600 border-0">
+      {{ pais().name.official }}
+    </span>
+  </div>
+</a>

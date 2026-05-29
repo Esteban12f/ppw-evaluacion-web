@@ -1,0 +1,32 @@
+<div class="space-y-4 max-w-xl mx-auto">
+  <a routerLink="/" class="btn btn-ghost btn-xs text-slate-400 hover:text-slate-700 pl-1">
+    ← Volver al Listado de Países
+  </a>
+
+  @if (!paisSignal()) {
+    <div class="flex justify-center py-20">
+      <span class="loading loading-spinner loading-lg text-primary"></span>
+    </div>
+  } @else {
+    <article class="card border border-slate-200/80 bg-white shadow-xs overflow-hidden rounded-2xl">
+      <div class="p-6 flex flex-col sm:flex-row items-center gap-6">
+        <div class="avatar">
+          <div class="h-32 w-44 rounded-xl ring-4 ring-slate-50 shadow-xs overflow-hidden bg-slate-100">
+            <img [src]="paisSignal()!.flags.png" [alt]="paisSignal()!.name.common" class="object-cover w-full h-full" />
+          </div>
+        </div>
+        <div class="space-y-3 flex-1 w-full text-center sm:text-left">
+          <div>
+            <span class="text-[10px] uppercase font-bold text-primary tracking-widest bg-primary/10 px-2.5 py-1 rounded-md">Ficha Geopolítica</span>
+            <h2 class="text-xl font-black text-slate-900 mt-2 tracking-tight">{{ paisSignal()!.name.common }}</h2>
+          </div>
+          <div class="border-t border-slate-100 my-1"></div>
+          <div class="grid grid-cols-1 gap-2 text-xs text-slate-600">
+            <p class="bg-slate-50 p-2 rounded-lg border border-slate-100/50"><strong>Nombre Oficial:</strong> {{ paisSignal()!.name.official }}</p>
+            <p class="bg-slate-50 p-2 rounded-lg border border-slate-100/50"><strong>Capital Central:</strong> {{ paisSignal()!.capital[0] || 'No Registra' }}</p>
+          </div>
+        </div>
+      </div>
+    </article>
+  }
+</div>
